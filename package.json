@@ -1,0 +1,10 @@
+{
+  "name": "software-factory",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "scripts": {
+    "factory": "node bin/factory.mjs"
+  },
+  "engines": { "node": ">=22" }
+}

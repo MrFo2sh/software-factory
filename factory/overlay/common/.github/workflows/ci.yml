@@ -1,0 +1,21 @@
+# Runs the factory check for this product. Adjust the setup block to the blueprint's runtime.
+name: ci
+on: [push, pull_request]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: npm i -g pnpm && pip install uv
+      - name: install
+        run: node -e "const c=require('./factory.json').commands.install; if(c) require('child_process').execSync(c,{stdio:'inherit'})"
+      - name: check
+        run: |
+          for s in lint typecheck test build audit; do
+            c=$(node -p "require('./factory.json').commands['$s']||''")
+            if [ -n "$c" ]; then echo "== $s"; sh -c "$c"; fi
+          done

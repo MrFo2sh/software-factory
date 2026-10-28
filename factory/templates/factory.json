@@ -1,0 +1,18 @@
+{
+  "name": "{{SLUG}}",
+  "one_liner": "{{ONE_LINER}}",
+  "blueprint": "{{TYPE}}",
+  "version": "0.1.0",
+  "check": ["lint", "typecheck", "test", "build", "audit"],
+  "stopOnFail": true,
+  "commands": {
+    "install": "",
+    "lint": "",
+    "typecheck": "",
+    "test": "",
+    "build": "",
+    "audit": "",
+    "run": "",
+    "release": ""
+  }
+}

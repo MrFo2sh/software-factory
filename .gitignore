@@ -1,0 +1,18 @@
+node_modules/
+.env
+.env.*
+!.env.example
+dist/
+build/
+out/
+__pycache__/
+.venv/
+*.log
+.factory/logs/
+.DS_Store
+Thumbs.db
+
+# Products are separate git repositories (see products/README.md).
+products/*
+!products/README.md
+.vscode/
