@@ -5,3 +5,5 @@
 | 2026-10-28 | [agent-globe](https://github.com/MrFo2sh/agent-globe) | 0.1.0 | desktop-app | A GPU-rendered 3D constellation of every coding-agent session, its subagents, and their terminal executions, live. |
 | 2026-10-28 | [phosphor-theme](https://github.com/MrFo2sh/phosphor-theme) | 0.1.0 | vscode-theme | Retro phosphor-green VS Code colour theme matching Agent Globe. |
 | 2026-10-28 | [agent-globe](https://github.com/MrFo2sh/agent-globe) | 0.2.0 | desktop-app | A GPU-rendered 3D constellation of every coding-agent session, its subagents, and their terminal executions, live. |
+| 2026-10-28 | [agent-globe](https://github.com/MrFo2sh/agent-globe) | 0.2.1 | desktop-app | A GPU-rendered 3D constellation of every coding-agent session, its subagents, and their terminal executions, live. |
+| 2026-10-28 | [agent-globe](https://github.com/MrFo2sh/agent-globe) | 0.2.2 | desktop-app | A GPU-rendered 3D constellation of every coding-agent session, its subagents, and their terminal executions, live. |
