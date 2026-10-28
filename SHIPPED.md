@@ -9,3 +9,4 @@
 | 2026-10-28 | [agent-globe](https://github.com/MrFo2sh/agent-globe) | 0.2.2 | desktop-app | A GPU-rendered 3D constellation of every coding-agent session, its subagents, and their terminal executions, live. |
 | 2026-10-28 | [agent-globe](https://github.com/MrFo2sh/agent-globe) | 0.2.3 | desktop-app | A GPU-rendered 3D constellation of every coding-agent session, its subagents, and their terminal executions, live. |
 | 2026-10-28 | [agent-globe](https://github.com/MrFo2sh/agent-globe) | 0.2.4 | desktop-app | A GPU-rendered 3D constellation of every coding-agent session, its subagents, and their terminal executions, live. |
+| 2026-10-28 | [agent-globe](https://github.com/MrFo2sh/agent-globe) | 0.3.0 | desktop-app | A GPU-rendered 3D constellation of every coding-agent session, its subagents, and their terminal executions, live. |
