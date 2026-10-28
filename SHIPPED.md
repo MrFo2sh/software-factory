@@ -21,3 +21,4 @@
 | 2026-10-28 | [ctf-watch](https://github.com/MrFo2sh/ctf-monitor) | 1.1.0 | api-service (adopted: vanilla Node 24, no framework) | Live SOC dashboard for web CTFs: a logging reverse proxy that shows who is doing what, per student, as it happens. |
 | 2026-10-28 | [ctf-watch](https://github.com/MrFo2sh/ctf-monitor) | 1.2.0 | api-service (adopted: vanilla Node 24, no framework) | Live SOC dashboard for web CTFs: a logging reverse proxy that shows who is doing what, per student, as it happens. |
 | 2026-10-28 | [agent-globe](https://github.com/MrFo2sh/agent-globe) | 0.5.1 | desktop-app | A GPU-rendered 3D constellation of every coding-agent session, its subagents, and their terminal executions, live. |
+| 2026-10-28 | [ctf-watch](https://github.com/MrFo2sh/ctf-monitor) | 1.2.1 | api-service (adopted: vanilla Node 24, no framework) | Live SOC dashboard for web CTFs: a logging reverse proxy that shows who is doing what, per student, as it happens. |
