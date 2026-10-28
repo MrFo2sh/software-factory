@@ -23,7 +23,10 @@ Read this file fully. Read everything else only when the loop below tells you to
 8. **Review** — walk `factory/checklists/definition-of-done.md`. For anything that touches
    networks, files, credentials, or user input, also walk `factory/checklists/security-review.md`.
 9. **Ship** — run `node bin/factory.mjs ship <slug>`. It refuses unless the last check passed.
-   It tags the version, updates `CHANGELOG.md`, appends to `SHIPPED.md`, and archives the idea.
+   It updates `CHANGELOG.md`, runs the product's `release` command, commits and tags the product in
+   its OWN git repository (created on first ship), appends to `SHIPPED.md`, and archives the idea.
+   Products never live in the factory's history: `products/*` is ignored here. If the idea file has
+   `push: true` and the product has a remote, `ship` pushes; otherwise it prints the publish command.
 10. **Report** — final message: what shipped, how to run it, what is in the backlog, and anything
     that could not be verified. Nothing else.
 
@@ -54,7 +57,8 @@ Read this file fully. Read everything else only when the loop below tells you to
 
 - Security tooling is defensive only: scanners, analyzers, monitors, detectors, hardening.
   No malware, no evasion, no attack tooling, no credential harvesting.
-- Never commit secrets. Never push unless the idea file says `push: true`.
+- Never commit secrets. Never push unless the idea file says `push: true`. Product repos default
+  to private when created with `gh repo create --private`.
 - Never delete or rewrite another product's files.
 - Stay in `products/<slug>/`. The factory itself (`bin/`, `factory/`) changes only when an idea
   explicitly targets the factory.

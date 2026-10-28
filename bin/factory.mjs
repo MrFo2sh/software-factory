@@ -220,15 +220,34 @@ function ship(slug) {
     console.log("release command: PASS");
   }
 
-  if (fs.existsSync(path.join(dir, ".git"))) {
-    run(`git add -A && git commit -m "release: v${version}" --quiet`, dir);
-    run(`git tag -f v${version}`, dir);
-    console.log(`tagged v${version}`);
+  // Every product is its own git repository. First ship creates it; later ships commit and tag.
+  const idea = listIdeas(path.join(IDEAS, "inbox")).find((i) => i.meta.product === `products/${slug}`);
+  if (!fs.existsSync(path.join(dir, ".git"))) {
+    run("git init -q -b main", dir);
+    console.log("initialized git repository");
+  }
+  const gitLog = [];
+  for (const cmd of ["git add -A", `git -c core.safecrlf=false commit -q -m "release: v${version}"`, `git tag -f v${version}`]) {
+    const r = run(cmd, dir);
+    gitLog.push(`$ ${cmd}\n${r.stdout ?? ""}${r.stderr ?? ""}(exit ${r.status})\n`);
+  }
+  fs.writeFileSync(path.join(dir, ".factory", "logs", "git.log"), gitLog.join("\n"));
+  const head = run("git log --oneline -1", dir).stdout?.trim() ?? "";
+  console.log(`committed and tagged v${version} at ${head} (details: .factory/logs/git.log)`);
+  const remote = run("git remote get-url origin", dir);
+  if (remote.status !== 0) {
+    console.log(`no remote yet. To publish:\n  gh repo create ${slug} --private --source=products/${slug} --push\n  or: git -C products/${slug} remote add origin <url> && git -C products/${slug} push -u origin main --tags`);
+  } else if (idea?.meta.push === true) {
+    const p = run("git push -u origin main --tags", dir);
+    console.log(p.status === 0 ? `pushed to ${remote.stdout.trim()}` : `push failed:\n${(p.stderr ?? "").trim()}`);
+  } else {
+    console.log(`remote ${remote.stdout.trim()} set; not pushed (idea has push: false). Push with: git -C products/${slug} push --tags`);
   }
 
+  const link = remote.status === 0 ? remote.stdout.trim().replace(/[.]git$/, "") : `products/${slug}`;
   fs.appendFileSync(
     path.join(ROOT, "SHIPPED.md"),
-    `| ${date} | [${slug}](products/${slug}) | ${version} | ${cfg.blueprint ?? "-"} | ${cfg.one_liner ?? ""} |\n`,
+    `| ${date} | [${slug}](${link}) | ${version} | ${cfg.blueprint ?? "-"} | ${cfg.one_liner ?? ""} |\n`,
   );
 
   for (const i of listIdeas(path.join(IDEAS, "inbox"))) {

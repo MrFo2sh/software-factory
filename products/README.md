@@ -5,12 +5,12 @@ on it. The factory repository ignores their contents; clone them separately.
 
 | Product | Repository | Blueprint |
 |---|---|---|
-| agent-globe | `products/agent-globe` (own git repo; add remote and push to publish) | desktop-app |
-| phosphor-theme | `products/phosphor-theme` (own git repo; add remote and push to publish) | vscode-theme |
+| agent-globe | https://github.com/MrFo2sh/agent-globe | desktop-app |
+| phosphor-theme | https://github.com/MrFo2sh/phosphor-theme | vscode-theme |
 
 To add a product repository after cloning the factory:
 
 ```
-git clone <product-url> products/<slug>
+git clone https://github.com/MrFo2sh/<slug>.git products/<slug>
 node bin/factory.mjs check <slug>
 ```
