@@ -2,6 +2,7 @@
 // Software factory CLI. Zero dependencies.
 // Commands: next | new <idea.md> | check <slug> | ship <slug> | status
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
@@ -95,14 +96,21 @@ function productDir(slug) {
 }
 
 function run(command, cwd) {
-  const shell = process.platform === "win32" ? "cmd.exe" : "/bin/sh";
-  const args = process.platform === "win32" ? ["/d", "/s", "/c", command] : ["-c", command];
-  return spawnSync(shell, args, {
+  const opts = {
     cwd,
     encoding: "utf8",
     maxBuffer: 64 * 1024 * 1024,
     env: { ...process.env, CI: "1", FORCE_COLOR: "0" },
-  });
+  };
+  if (process.platform !== "win32") return spawnSync("/bin/sh", ["-c", command], opts);
+  // cmd.exe mangles quotes passed on its own command line; a script file keeps them intact.
+  const script = path.join(os.tmpdir(), `factory-${process.pid}-${Date.now()}.cmd`);
+  fs.writeFileSync(script, `@echo off\r\n${command}\r\n`);
+  try {
+    return spawnSync("cmd.exe", ["/d", "/c", script], opts);
+  } finally {
+    fs.rmSync(script, { force: true });
+  }
 }
 
 // ---------- commands ----------
