@@ -7,7 +7,7 @@ on it. The factory repository ignores their contents; clone them separately.
 |---|---|---|
 | agent-globe | https://github.com/MrFo2sh/agent-globe | desktop-app |
 | phosphor-theme | https://github.com/MrFo2sh/phosphor-theme | vscode-theme |
-| gae | https://github.com/MrFo2sh/GAE | desktop-app (defines `gamified-env`) |
+| gee | https://github.com/MrFo2sh/GEE | desktop-app (defines `gamified-env`) |
 
 To add a product repository after cloning the factory:
 

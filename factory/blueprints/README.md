@@ -9,7 +9,7 @@
 | A Discord bot | `discord-bot` | discord.js v14, TypeScript, slash commands | Docker image |
 | An AI agent or agent-powered app | `agent` | TypeScript, Anthropic SDK tool runner or Claude Agent SDK, `claude-opus-5-5` | Vercel, Docker, or CLI |
 | A native desktop app, especially anything graphical, real-time, or GPU-heavy | `desktop-app` | Rust, Bevy (wgpu), egui, serde, notify | One executable per OS |
-| "Gamify" a work domain: a live 3D command center where what needs you lights up and handling it earns XP (SOC, homelab, CI, pentest notes...) | `gamified-env` | Rust, Bevy, egui on the GAE kit (`products/gae`) | One executable per environment |
+| "Gamify" a work domain: a live 3D command center where what needs you lights up and handling it earns XP (SOC, homelab, CI, pentest notes...) | `gamified-env` | Rust, Bevy, egui on the GEE kit (`products/gee`) | One executable per environment |
 
 Tie-breakers:
 - "Antivirus" or "memory analysis" = `cli-py` for the engine. If it needs a UI, ship the CLI first and
