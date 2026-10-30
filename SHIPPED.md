@@ -92,3 +92,4 @@
 | 2026-10-29 | [gae](products/gae) | 0.1.0 | desktop-app | Gamify Any Environment. A Rust + Bevy engine kit and agent playbook that turns any work domain (blue team, red team, programming, ops) into a live, GPU-rendered constellation like Agent Globe. |
 | 2026-10-30 | [agent-globe](https://github.com/MrFo2sh/agent-globe) | 0.29.2 | desktop-app | A GPU-rendered 3D constellation of every coding-agent session, its subagents, and their terminal executions, live. |
 | 2026-10-30 | [study-space](products/study-space) | 0.1.0 | desktop-app | Ask Claude to explain a complex topic and it draws a navigable 3D scene of it in space, step by step, through an MCP server. |
+| 2026-10-30 | [study-space](products/study-space) | 0.2.0 | desktop-app | Ask Claude to explain a complex topic and it draws a navigable scene of it, down to the numbers, step by step, through an MCP server. |
