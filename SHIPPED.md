@@ -98,3 +98,4 @@
 | 2026-10-30 | [study-space](products/study-space) | 0.4.0 | desktop-app | Ask Claude to explain a complex topic and it draws a navigable scene of it, down to the numbers, step by step, through an MCP server. |
 | 2026-10-30 | [study-space](products/study-space) | 0.5.0 | desktop-app | Ask Claude to explain a complex topic and it draws a navigable scene of it, down to the numbers, step by step, through an MCP server. |
 | 2026-10-30 | [agent-globe](https://github.com/MrFo2sh/agent-globe) | 0.30.1 | desktop-app | A GPU-rendered 3D constellation of every coding-agent session, its subagents, and their terminal executions, live. |
+| 2026-10-31 | [study-space](products/study-space) | 0.6.0 | desktop-app | Ask Claude to explain a complex topic and it draws a navigable scene of it, down to the numbers, step by step, through an MCP server. |
