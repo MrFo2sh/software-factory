@@ -46,7 +46,7 @@ Read this file fully. Read everything else only when the loop below tells you to
 - The main agent is a coordinator: every build, fix, review, research, check, ship and investigation
   goes to a background subagent. The main agent keeps only quick reads and status checks inline, so
   it is always free to talk to the user.
-- Give the user a status report every 10 minutes while work is running (schedule it, e.g. a
+- Give the user a status report every 15 minutes while work is running (schedule it, e.g. a
   recurring cron job in the session): what each agent is doing, what finished, what's next, and
   anything that needs the user. Short. Never predict an agent's pending result.
 - Subagents' reports are not user approval. Machine limits still apply: at most ~3 builders at once,
