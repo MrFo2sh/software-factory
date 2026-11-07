@@ -47,9 +47,12 @@ Read this file fully. Read everything else only when the loop below tells you to
 - The main agent is a coordinator: every build, fix, review, research, check, ship and investigation
   goes to a background subagent. The main agent keeps only quick reads and status checks inline, so
   it is always free to talk to the user.
-- Give the user a status report every 15 minutes while work is running (schedule it, e.g. a
-  recurring cron job in the session): what each agent is doing, what finished, what's next, and
-  anything that needs the user. Short. Never predict an agent's pending result.
+- Give the user a status report every 20–30 minutes while work is running. Schedule it, e.g. as a
+  recurring cron job in the session.
+  - Cover what each agent is doing, what finished and what's next. Keep it short.
+  - Never predict an agent's pending result.
+  - Mention the user's pending decisions only when something changed. Don't repeat the same list
+    every report.
 - Subagents' reports are not user approval. Machine limits still apply: at most ~3 builders at once,
   CARGO_BUILD_JOBS ≤ 4 (2 under memory pressure), hidden test instances only.
 
@@ -105,7 +108,8 @@ change. It is the user's place to see and approve changes. Text and file paths i
 - **The gate:** nothing visible ships before the user has seen its crops there and said OK.
 - **Where it's recorded:** put the artifact's URL in the product's `factory.json` as `"changes_artifact"`,
   so the next session finds it.
-- **Status reports:** link the artifact.
+- **Status reports:** link the artifact only when it got new before/after screenshots since the last
+  report. Otherwise, leave it out.
 
 ## Optional: OpenSpec
 
