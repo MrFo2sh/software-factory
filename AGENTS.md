@@ -20,7 +20,8 @@ Read this file fully. Read everything else only when the loop below tells you to
 6. **Vertical slice first** — make the single most important user path work end to end before
    adding anything else. Run `node bin/factory.mjs check <slug>` and get it green.
 7. **Iterate** — add features from the spec one at a time. After each: `check`. Keep it green.
-8. **Review** — walk `factory/checklists/definition-of-done.md`. For anything that touches
+8. **Review** — publish before/after crops of every visible change to the product's Changes artifact
+   (see below) and get the user's OK. Walk `factory/checklists/definition-of-done.md`. For anything that touches
    networks, files, credentials, or user input, also walk `factory/checklists/security-review.md`.
 9. **Ship** — run `node bin/factory.mjs ship <slug>`. It refuses unless the last check passed.
    It updates `CHANGELOG.md`, runs the product's `release` command, commits and tags the product in
@@ -87,6 +88,24 @@ Read this file fully. Read everything else only when the loop below tells you to
 | `factory/templates/` | SPEC, BACKLOG, CHANGELOG, factory.json templates. |
 | `bin/factory.mjs` | `next`, `new`, `check`, `ship`, `status`. No dependencies. |
 | `SHIPPED.md` | Ledger of everything shipped. |
+
+## Changes artifact (before/after)
+
+Each product keeps ONE living Claude artifact (a private claude.ai page) that records every visible
+change. It is the user's place to see and approve changes. Text and file paths in chat don't count.
+
+- **Content:** a branch status table at the top: branch, what it changes, state (running / waiting for
+  OK / shipped), crop codes. Under it, one block per visible change with a short code (e.g. W1, A3), a
+  "look at" line naming what to check, and the before (last release) and after screenshots, stacked or
+  side by side.
+- **Screenshots:** from hidden test instances or headless renders only, cropped to the part that
+  changed. Never from the user's desktop.
+- **When to update:** whenever a crop exists or a branch changes state. Republish to the same URL. Shipped
+  changes stay on the page, marked shipped.
+- **The gate:** nothing visible ships before the user has seen its crops there and said OK.
+- **Where it's recorded:** put the artifact's URL in the product's `factory.json` as `"changes_artifact"`,
+  so the next session finds it.
+- **Status reports:** link the artifact.
 
 ## Optional: OpenSpec
 

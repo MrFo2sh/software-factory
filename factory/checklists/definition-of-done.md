@@ -13,3 +13,5 @@ Walk this list before `ship`. Fix, or move to BACKLOG.md with a reason.
 - [ ] Release artifact builds: installer, image, package, or deploy URL.
 - [ ] No secrets, no absolute local paths, no personal data in the tree.
 - [ ] Security review done if the product touches network, files, credentials, or user input.
+- [ ] Every visible change has before/after screenshots in the product's Changes artifact, and the user
+      has approved them. See "Changes artifact" in AGENTS.md.
